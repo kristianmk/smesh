@@ -205,7 +205,7 @@ bool StdMeshers_Quadrangle_2D::CheckHypothesis
 //=============================================================================
 
 bool StdMeshers_Quadrangle_2D::Compute (SMESH_Mesh& aMesh,
-                                        const TopoDS_Shape& aShape)// throw (SALOME_Exception)
+                                        const TopoDS_Shape& aShape)
 {
   // PAL14921. Enable catching std::bad_alloc and Standard_OutOfMemory outside
   //Unexpect aCatchSalomeException);
@@ -1160,7 +1160,7 @@ namespace {
 
 bool StdMeshers_Quadrangle_2D::SetNormalizedGrid (SMESH_Mesh & aMesh,
                                                   const TopoDS_Shape& aShape,
-                                                  FaceQuadStruct* & quad) //throw (SALOME_Exception)
+                                                  FaceQuadStruct* & quad)
 {
   // Algorithme d�crit dans "G�n�ration automatique de maillages"
   // P.L. GEORGE, MASSON, � 6.4.1 p. 84-85

@@ -45,9 +45,9 @@ protected :
 public :
 	SMESH_Exception( const char *text, const char *fileName=0, const unsigned int lineNumber=0 );
 	SMESH_Exception( const SMESH_Exception &ex );
-	~SMESH_Exception() throw ();
+    ~SMESH_Exception();
 	friend std::ostream & operator<<( std::ostream &os , const SMESH_Exception &ex );
-	virtual const char *what( void ) const throw () ;
+    virtual const char *what( void ) const;
 } ;
 
 

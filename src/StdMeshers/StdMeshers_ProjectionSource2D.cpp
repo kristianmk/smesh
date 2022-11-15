@@ -71,7 +71,6 @@ StdMeshers_ProjectionSource2D::~StdMeshers_ProjectionSource2D()
 //=============================================================================
 
 void StdMeshers_ProjectionSource2D::SetSourceFace(const TopoDS_Shape& Face)
-  throw ( SALOME_Exception )
 {
   if ( Face.IsNull() )
     throw SALOME_Exception(LOCALIZED("Null Face is not allowed"));
@@ -99,7 +98,6 @@ void StdMeshers_ProjectionSource2D::SetVertexAssociation(const TopoDS_Shape& sou
                                                          const TopoDS_Shape& sourceVertex2,
                                                          const TopoDS_Shape& targetVertex1,
                                                          const TopoDS_Shape& targetVertex2)
-  throw ( SALOME_Exception )
 {
   if ( sourceVertex1.IsNull() != targetVertex1.IsNull() ||
        sourceVertex2.IsNull() != targetVertex2.IsNull() ||
@@ -161,7 +159,6 @@ TopoDS_Shape StdMeshers_ProjectionSource2D::GetSourceFace() const
 //=============================================================================
 
 TopoDS_Vertex StdMeshers_ProjectionSource2D::GetSourceVertex(int i) const
-  throw ( SALOME_Exception )
 {
   if ( i == 1 )
     return _sourceVertex1;
@@ -179,7 +176,6 @@ TopoDS_Vertex StdMeshers_ProjectionSource2D::GetSourceVertex(int i) const
 //=============================================================================
 
 TopoDS_Vertex StdMeshers_ProjectionSource2D::GetTargetVertex(int i) const
-  throw ( SALOME_Exception )
 {
   if ( i == 1 )
     return _targetVertex1;

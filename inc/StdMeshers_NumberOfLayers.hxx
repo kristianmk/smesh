@@ -53,7 +53,7 @@ public:
   virtual ~StdMeshers_NumberOfLayers();
 
   // Sets <number of segments> parameter value
-  void SetNumberOfLayers(int numberOfLayers) throw ( SALOME_Exception );
+  void SetNumberOfLayers(int numberOfLayers);
 
   // Returns <number of layers> parameter value
   int GetNumberOfLayers() const;

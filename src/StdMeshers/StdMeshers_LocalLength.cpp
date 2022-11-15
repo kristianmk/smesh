@@ -77,7 +77,7 @@ StdMeshers_LocalLength::~StdMeshers_LocalLength()
  */
 //=============================================================================
 
-void StdMeshers_LocalLength::SetLength(double length) throw(SALOME_Exception)
+void StdMeshers_LocalLength::SetLength(double length)
 {
   double oldLength = _length;
   if (length <= 0)

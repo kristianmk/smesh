@@ -70,7 +70,6 @@ StdMeshers_ProjectionSource3D::~StdMeshers_ProjectionSource3D()
 //=============================================================================
 
 void StdMeshers_ProjectionSource3D::SetSource3DShape(const TopoDS_Shape& Shape)
-  throw ( SALOME_Exception )
 {
   if ( Shape.IsNull() )
     throw SALOME_Exception(LOCALIZED("Null Shape is not allowed"));
@@ -98,7 +97,6 @@ void StdMeshers_ProjectionSource3D::SetVertexAssociation(const TopoDS_Shape& sou
                                                          const TopoDS_Shape& sourceVertex2,
                                                          const TopoDS_Shape& targetVertex1,
                                                          const TopoDS_Shape& targetVertex2)
-  throw ( SALOME_Exception )
 {
   if ( sourceVertex1.IsNull() != targetVertex1.IsNull() ||
        sourceVertex2.IsNull() != targetVertex2.IsNull() ||
@@ -160,7 +158,6 @@ TopoDS_Shape StdMeshers_ProjectionSource3D::GetSource3DShape() const
 //=============================================================================
 
 TopoDS_Vertex StdMeshers_ProjectionSource3D::GetSourceVertex(int i) const
-  throw ( SALOME_Exception )
 {
   if ( i == 1 )
     return _sourceVertex1;
@@ -178,7 +175,6 @@ TopoDS_Vertex StdMeshers_ProjectionSource3D::GetSourceVertex(int i) const
 //=============================================================================
 
 TopoDS_Vertex StdMeshers_ProjectionSource3D::GetTargetVertex(int i) const
-  throw ( SALOME_Exception )
 {
   if ( i == 1 )
     return _targetVertex1;

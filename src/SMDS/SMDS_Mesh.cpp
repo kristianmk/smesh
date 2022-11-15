@@ -59,7 +59,7 @@ using namespace std;
  */
 //================================================================================
 
-int SMDS_Mesh::CheckMemory(const bool doNotRaise) throw (std::bad_alloc)
+int SMDS_Mesh::CheckMemory(const bool doNotRaise)
 {
 #if (defined(__MACH__) && defined(__APPLE__))
   return 1000;

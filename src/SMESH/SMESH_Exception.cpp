@@ -97,7 +97,7 @@ SMESH_Exception::SMESH_Exception( const char *text, const char *fileName, const 
 }
 
 
-SMESH_Exception::~SMESH_Exception() throw ()
+SMESH_Exception::~SMESH_Exception()
 {
 	if ( _text )
 	{
@@ -124,7 +124,7 @@ std::ostream & operator<<( std::ostream &os , const SMESH_Exception &ex )
 
 
 
-const char* SMESH_Exception::what( void ) const throw ()
+const char* SMESH_Exception::what( void ) const
 {
 	return _text ;
 }

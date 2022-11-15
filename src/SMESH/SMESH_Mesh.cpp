@@ -459,7 +459,7 @@ int SMESH_Mesh::DATToMesh(const char* theFileName)
 
 SMESH_Hypothesis::Hypothesis_Status
   SMESH_Mesh::AddHypothesis(const TopoDS_Shape & aSubShape,
-                            int                  anHypId  ) throw(SALOME_Exception)
+                            int                  anHypId  )
 {
   Unexpect aCatch(SalomeException);
   if(MYDEBUG) MESSAGE("SMESH_Mesh::AddHypothesis");
@@ -663,7 +663,6 @@ SMESH_Hypothesis::Hypothesis_Status
 
 const std::list<const SMESHDS_Hypothesis*>&
 SMESH_Mesh::GetHypothesisList(const TopoDS_Shape & aSubShape) const
-  throw(SALOME_Exception)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetHypothesis(aSubShape);
@@ -792,7 +791,7 @@ int SMESH_Mesh::GetHypotheses(const TopoDS_Shape &                aSubShape,
  */
 //=============================================================================
 
-const std::list<SMESHDS_Command*> & SMESH_Mesh::GetLog() throw(SALOME_Exception)
+const std::list<SMESHDS_Command*> & SMESH_Mesh::GetLog()
 {
   Unexpect aCatch(SalomeException);
   if(MYDEBUG) MESSAGE("SMESH_Mesh::GetLog");
@@ -804,7 +803,7 @@ const std::list<SMESHDS_Command*> & SMESH_Mesh::GetLog() throw(SALOME_Exception)
  * 
  */
 //=============================================================================
-void SMESH_Mesh::ClearLog() throw(SALOME_Exception)
+void SMESH_Mesh::ClearLog()
 {
   Unexpect aCatch(SalomeException);
   if(MYDEBUG) MESSAGE("SMESH_Mesh::ClearLog");
@@ -818,7 +817,6 @@ void SMESH_Mesh::ClearLog() throw(SALOME_Exception)
 //=============================================================================
 
 SMESH_subMesh *SMESH_Mesh::GetSubMesh(const TopoDS_Shape & aSubShape)
-  throw(SALOME_Exception)
 {
   Unexpect aCatch(SalomeException);
   SMESH_subMesh *aSubMesh;
@@ -857,7 +855,6 @@ SMESH_subMesh *SMESH_Mesh::GetSubMesh(const TopoDS_Shape & aSubShape)
 //=============================================================================
 
 SMESH_subMesh *SMESH_Mesh::GetSubMeshContaining(const TopoDS_Shape & aSubShape) const
-  throw(SALOME_Exception)
 {
   Unexpect aCatch(SalomeException);
   SMESH_subMesh *aSubMesh = NULL;
@@ -895,7 +892,6 @@ throw(SALOME_Exception)
 
 std::list<SMESH_subMesh*>
 SMESH_Mesh::GetGroupSubMeshesContaining(const TopoDS_Shape & aSubShape) const
-  throw(SALOME_Exception)
 {
   Unexpect aCatch(SalomeException);
   std::list<SMESH_subMesh*> found;
@@ -969,7 +965,6 @@ bool SMESH_Mesh::IsUsedHypothesis(SMESHDS_Hypothesis * anHyp,
 
 const list < SMESH_subMesh * >&
 SMESH_Mesh::GetSubMeshUsingHypothesis(SMESHDS_Hypothesis * anHyp)
-  throw(SALOME_Exception)
 {
   Unexpect aCatch(SalomeException);
   if(MYDEBUG) MESSAGE("SMESH_Mesh::GetSubMeshUsingHypothesis");
@@ -1042,13 +1037,13 @@ void SMESH_Mesh::NotifySubMeshesHypothesisModification(const SMESH_Hypothesis* h
  *  Auto color functionality
  */
 //=============================================================================
-void SMESH_Mesh::SetAutoColor(bool theAutoColor) throw(SALOME_Exception)
+void SMESH_Mesh::SetAutoColor(bool theAutoColor)
 {
   Unexpect aCatch(SalomeException);
   _isAutoColor = theAutoColor;
 }
 
-bool SMESH_Mesh::GetAutoColor() throw(SALOME_Exception)
+bool SMESH_Mesh::GetAutoColor()
 {
   Unexpect aCatch(SalomeException);
   return _isAutoColor;
@@ -1070,12 +1065,11 @@ void SMESH_Mesh::ExportMED(const char *file,
                            const char* theMeshName,
                            bool theAutoGroups,
                            int theVersion)
-  throw(SALOME_Exception)
 {
   throw SALOME_Exception(LOCALIZED ("Not implemented ..."));
 }
 
-void SMESH_Mesh::ExportDAT(const char *file) throw(SALOME_Exception)
+void SMESH_Mesh::ExportDAT(const char *file)
 {
   Unexpect aCatch(SalomeException);
   DriverDAT_W_SMDS_Mesh myWriter;
@@ -1085,7 +1079,7 @@ void SMESH_Mesh::ExportDAT(const char *file) throw(SALOME_Exception)
   myWriter.Perform();
 }
 
-void SMESH_Mesh::ExportUNV(const char *file) throw(SALOME_Exception)
+void SMESH_Mesh::ExportUNV(const char *file)
 {
   Unexpect aCatch(SalomeException);
   DriverUNV_W_SMDS_Mesh myWriter;
@@ -1106,7 +1100,7 @@ void SMESH_Mesh::ExportUNV(const char *file) throw(SALOME_Exception)
   myWriter.Perform();
 }
 
-void SMESH_Mesh::ExportSTL(const char *file, const bool isascii) throw(SALOME_Exception)
+void SMESH_Mesh::ExportSTL(const char *file, const bool isascii)
 {
   Unexpect aCatch(SalomeException);
   DriverSTL_W_SMDS_Mesh myWriter;
@@ -1123,7 +1117,7 @@ void SMESH_Mesh::ExportSTL(const char *file, const bool isascii) throw(SALOME_Ex
  */
 //================================================================================
 
-int SMESH_Mesh::NbNodes() throw(SALOME_Exception)
+int SMESH_Mesh::NbNodes()
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->NbNodes();
@@ -1135,7 +1129,7 @@ int SMESH_Mesh::NbNodes() throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::Nb0DElements() throw(SALOME_Exception)
+int SMESH_Mesh::Nb0DElements()
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().Nb0DElements();
@@ -1147,7 +1141,7 @@ int SMESH_Mesh::Nb0DElements() throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbEdges(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
+int SMESH_Mesh::NbEdges(SMDSAbs_ElementOrder order)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbEdges(order);
@@ -1159,7 +1153,7 @@ int SMESH_Mesh::NbEdges(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbFaces(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
+int SMESH_Mesh::NbFaces(SMDSAbs_ElementOrder order)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbFaces(order);
@@ -1171,7 +1165,7 @@ int SMESH_Mesh::NbFaces(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbTriangles(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
+int SMESH_Mesh::NbTriangles(SMDSAbs_ElementOrder order)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbTriangles(order);
@@ -1183,7 +1177,7 @@ int SMESH_Mesh::NbTriangles(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbQuadrangles(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
+int SMESH_Mesh::NbQuadrangles(SMDSAbs_ElementOrder order)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbQuadrangles(order);
@@ -1195,7 +1189,7 @@ int SMESH_Mesh::NbQuadrangles(SMDSAbs_ElementOrder order) throw(SALOME_Exception
  */
 //================================================================================
 
-int SMESH_Mesh::NbPolygons() throw(SALOME_Exception)
+int SMESH_Mesh::NbPolygons()
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbPolygons();
@@ -1207,7 +1201,7 @@ int SMESH_Mesh::NbPolygons() throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbVolumes(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
+int SMESH_Mesh::NbVolumes(SMDSAbs_ElementOrder order)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbVolumes(order);
@@ -1219,7 +1213,7 @@ int SMESH_Mesh::NbVolumes(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbTetras(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
+int SMESH_Mesh::NbTetras(SMDSAbs_ElementOrder order)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbTetras(order);
@@ -1231,7 +1225,7 @@ int SMESH_Mesh::NbTetras(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbHexas(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
+int SMESH_Mesh::NbHexas(SMDSAbs_ElementOrder order)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbHexas(order);
@@ -1243,7 +1237,7 @@ int SMESH_Mesh::NbHexas(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbPyramids(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
+int SMESH_Mesh::NbPyramids(SMDSAbs_ElementOrder order)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbPyramids(order);
@@ -1255,7 +1249,7 @@ int SMESH_Mesh::NbPyramids(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbPrisms(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
+int SMESH_Mesh::NbPrisms(SMDSAbs_ElementOrder order)
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbPrisms(order);
@@ -1267,7 +1261,7 @@ int SMESH_Mesh::NbPrisms(SMDSAbs_ElementOrder order) throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbPolyhedrons() throw(SALOME_Exception)
+int SMESH_Mesh::NbPolyhedrons()
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->GetMeshInfo().NbPolyhedrons();
@@ -1279,7 +1273,7 @@ int SMESH_Mesh::NbPolyhedrons() throw(SALOME_Exception)
  */
 //================================================================================
 
-int SMESH_Mesh::NbSubMesh() throw(SALOME_Exception)
+int SMESH_Mesh::NbSubMesh()
 {
   Unexpect aCatch(SalomeException);
   return _myMeshDS->NbSubMesh();
