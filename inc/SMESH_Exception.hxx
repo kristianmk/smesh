@@ -47,7 +47,7 @@ public :
 	SMESH_Exception( const SMESH_Exception &ex );
     ~SMESH_Exception();
 	friend std::ostream & operator<<( std::ostream &os , const SMESH_Exception &ex );
-    virtual const char *what( void ) const;
+    virtual const char *what( void ) const noexcept;
 } ;
 
 

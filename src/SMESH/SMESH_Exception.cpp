@@ -124,7 +124,7 @@ std::ostream & operator<<( std::ostream &os , const SMESH_Exception &ex )
 
 
 
-const char* SMESH_Exception::what( void ) const
+const char* SMESH_Exception::what( void ) const noexcept
 {
 	return _text ;
 }
