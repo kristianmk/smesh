@@ -570,7 +570,7 @@ SMESH_Hypothesis::Hypothesis_Status
 
 SMESH_Hypothesis::Hypothesis_Status
   SMESH_Mesh::RemoveHypothesis(const TopoDS_Shape & aSubShape,
-                               int anHypId)throw(SALOME_Exception)
+                               int anHypId)
 {
   Unexpect aCatch(SalomeException);
   if(MYDEBUG) MESSAGE("SMESH_Mesh::RemoveHypothesis");
@@ -875,7 +875,6 @@ SMESH_subMesh *SMESH_Mesh::GetSubMeshContaining(const TopoDS_Shape & aSubShape) 
 //=============================================================================
 
 SMESH_subMesh *SMESH_Mesh::GetSubMeshContaining(const int aShapeID) const
-throw(SALOME_Exception)
 {
   Unexpect aCatch(SalomeException);
   
