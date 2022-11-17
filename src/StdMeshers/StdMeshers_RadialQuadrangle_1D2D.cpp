@@ -309,7 +309,7 @@ bool StdMeshers_RadialQuadrangle_1D2D::Compute(SMESH_Mesh&         aMesh,
   myHelper = new SMESH_MesherHelper( aMesh );
   myHelper->IsQuadraticSubMesh( aShape );
   // to delete helper at exit from Compute()
-  auto_ptr<SMESH_MesherHelper> helperDeleter( myHelper );
+  unique_ptrunique_ptr<SMESH_MesherHelper> helperDeleter( myHelper );
 
   myLayerPositions.clear();
 

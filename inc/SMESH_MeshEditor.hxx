@@ -261,7 +261,7 @@ public:
   // If the2D, smoothing is performed using UV parameters of nodes
   // on geometrical faces
 
-  typedef std::auto_ptr< std::list<int> > PGroupIDs;
+  typedef std::unique_ptr< std::list<int> > PGroupIDs;
 
   PGroupIDs RotationSweep (TIDSortedElemSet & theElements,
                            const gp_Ax1&      theAxis,

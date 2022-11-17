@@ -219,7 +219,7 @@ bool StdMeshers_Quadrangle_2D::Compute (SMESH_Mesh& aMesh,
   _quadraticMesh = myTool->IsQuadraticSubMesh(aShape);
 
   FaceQuadStruct *quad = CheckNbEdges( aMesh, aShape );
-  std::auto_ptr<FaceQuadStruct> quadDeleter( quad ); // to delete quad at exit from Compute()
+  std::unique_ptr<FaceQuadStruct> quadDeleter( quad ); // to delete quad at exit from Compute()
   if (!quad)
     return false;
 
